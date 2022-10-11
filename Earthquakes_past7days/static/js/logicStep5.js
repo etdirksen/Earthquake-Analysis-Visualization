@@ -64,15 +64,14 @@ d3.json(earthquakeData).then(function(data) {
 
     // Then add we add the earthquake layer to the map.
     earthquakes.addTo(map);
-});
 
-// Create a legend control object.
-let legend = L.control({
-    position: "bottomright"
-});
+    // Create a legend control object.
+    let legend = L.control({
+      position: "bottomright"
+    });
 
 
-legend.onAdd = function (map) {
+    legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend')
     const magnitudes = [0, 1, 2, 3, 4, 5];
@@ -86,16 +85,17 @@ legend.onAdd = function (map) {
     ];
 
     // Looping through our intervals to generate a label with a colored square for each interval.
-   for (var i = 0; i < magnitudes.length; i++) {
-    console.log(colors[i]);
-    div.innerHTML +=
-      "<i style='background: " + colors[i] + "'></i> " +
-      magnitudes[i] + (magnitudes[i + 1] ? "&ndash;" + magnitudes[i + 1] + "<br>" : "+");
- }
-  return div;
-};
+    for (var i = 0; i < magnitudes.length; i++) {
+      console.log(colors[i]);
+      div.innerHTML +=
+        "<i style='background: " + colors[i] + "'></i> " +
+        magnitudes[i] + (magnitudes[i + 1] ? "&ndash;" + magnitudes[i + 1] + "<br>" : "+");
+      };
+      return div;
+      };
 
-legend.addTo(map);
+    legend.addTo(map);
+  });
 
 // This function returns the style data for each of the earthquakes we plot on
 // the map. We pass the magnitude of the earthquake into a function
@@ -130,7 +130,7 @@ function getColor(magnitude) {
       return "#d4ee00";
     }
     return "#98ee00";
-  }
+  };
 
 // This function determines the radius of the earthquake marker based on its magnitude.
 // Earthquakes with a magnitude of 0 will be plotted with a radius of 1.
