@@ -1,1 +1,1 @@
-# 13-mapping-earthquakes
+# Earthquake Analysis & Interactive Visualization
